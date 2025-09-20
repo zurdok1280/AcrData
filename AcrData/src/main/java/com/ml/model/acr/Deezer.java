@@ -1,0 +1,56 @@
+
+package com.ml.model.acr;
+
+import java.util.List;
+import javax.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "album",
+    "track",
+    "artists"
+})
+@Generated("jsonschema2pojo")
+public class Deezer {
+
+    @JsonProperty("album")
+    private Album__2 album;
+    @JsonProperty("track")
+    private Track__1 track;
+    @JsonProperty("artists")
+    private List<Artist__2> artists = null;
+
+    @JsonProperty("album")
+    public Album__2 getAlbum() {
+        return album;
+    }
+
+    @JsonProperty("album")
+    public void setAlbum(Album__2 album) {
+        this.album = album;
+    }
+
+    @JsonProperty("track")
+    public Track__1 getTrack() {
+        return track;
+    }
+
+    @JsonProperty("track")
+    public void setTrack(Track__1 track) {
+        this.track = track;
+    }
+
+    @JsonProperty("artists")
+    public List<Artist__2> getArtists() {
+        return artists;
+    }
+
+    @JsonProperty("artists")
+    public void setArtists(List<Artist__2> artists) {
+        this.artists = artists;
+    }
+
+}
