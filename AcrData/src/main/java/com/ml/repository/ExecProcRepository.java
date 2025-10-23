@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ml.model.report.ArtistDigital;
 import com.ml.model.report.ChartDigital;
-import com.ml.model.report.ChatUser;
 import com.ml.model.report.City;
 import com.ml.model.report.CityData;
 import com.ml.model.report.Country;
@@ -123,11 +122,7 @@ public class ExecProcRepository {
 			    result[15].toString(),
 			    result[16].toString(),
 			    result[17].toString(),
-			    result[18].toString(),
-			    result[22].toString(),
-			    result[23].toString(),
-			    result[20].toString(),
-			    result[24].toString()
+			    result[18].toString()
 		    )).collect(Collectors.toList());
 		return lstres;
 		
@@ -321,8 +316,7 @@ public class ExecProcRepository {
 			    result[5].toString(),
 			    result[6].toString(),
 			    result[7].toString(),
-			    result[8].toString(),
-			    ""
+			    result[8].toString()
 		    )).collect(Collectors.toList());
 		return lstres;
 		
@@ -339,7 +333,7 @@ public class ExecProcRepository {
 		storedProcedure.registerStoredProcedureParameter( 5, Integer.class, ParameterMode.IN);
 		storedProcedure.registerStoredProcedureParameter( 6, Integer.class, ParameterMode.IN);
 		//storedProcedure.registerStoredProcedureParameter( 2, Class.class, ParameterMode.REF_CURSOR );
-		logger.info("run proc: " + "GET_TRENDING_DIGITAL_DEBUT_2025 " + format +" "+ country +" "+ CRG +" "+ custom +" "+ genre +" "+city);
+		
 		storedProcedure.setParameter(1, format);
 		storedProcedure.setParameter(2, country);
 		storedProcedure.setParameter(3, CRG);
@@ -359,8 +353,7 @@ public class ExecProcRepository {
 			    result[5].toString(),
 			    result[6].toString(),
 			    result[7].toString(),
-			    result[8].toString(),
-			    result[9].toString()
+			    result[8].toString()
 		    )).collect(Collectors.toList());
 		return lstres;
 		
@@ -393,8 +386,7 @@ public class ExecProcRepository {
 			    result[19].toString(),
 			    result[26].toString(),
 			    result[27].toString(),
-			    result[28].toString(),
-			    result[29].toString()
+			    result[28].toString()
 		    )).collect(Collectors.toList());
 		return lstres;
 	}
@@ -434,8 +426,7 @@ public class ExecProcRepository {
 			    result[2].toString(),
 			    result[3].toString(),
 			    result[4].toString(),
-			    result[5].toString(),
-			    result[6].toString()
+			    result[5].toString()
 		    )).collect(Collectors.toList());
 		return lstres;
 	}
@@ -525,40 +516,6 @@ public class ExecProcRepository {
 		
 		
 	}
-	
-	public List<ChatUser>  getUserChat(String phone){
-		StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("GET_CHAT_USER");
-		storedProcedure.registerStoredProcedureParameter( 1, String.class, ParameterMode.IN);
-		storedProcedure.setParameter(1, phone);
-		storedProcedure.execute();
-		@SuppressWarnings("unchecked")
-		List<Object[]> results = storedProcedure.getResultList();
-		List<ChatUser> users = results.stream().map(result -> new ChatUser(
-				result[0].toString(),
-			    result[1].toString(),
-			    result[2].toString(),
-			    result[3].toString(),
-			    result[4].toString(),
-			    result[5].toString()
-		    )).collect(Collectors.toList());
-		return users;
-		
-		
-	}
-	
-	
-	public void setLog(String phone, String message, String response) {
-		StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("SEG_LOG_CHAT");
-		storedProcedure.registerStoredProcedureParameter( 1, String.class, ParameterMode.IN);
-		storedProcedure.registerStoredProcedureParameter( 2, String.class, ParameterMode.IN);
-		storedProcedure.registerStoredProcedureParameter( 3, String.class, ParameterMode.IN);
-		storedProcedure.setParameter(1, phone);
-		storedProcedure.setParameter(2, message);
-		storedProcedure.setParameter(3, response);
-		storedProcedure.execute();
-	}
-	
-	
 	
 		
 		

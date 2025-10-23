@@ -54,7 +54,7 @@ public class ReportController {
 	@GetMapping(value = "getChartDigital/{format}/{country}/{CRG}/{city}", consumes = MediaType.ALL_VALUE)
 	public ResponseEntity<List<ChartDigital>> getChartDigital(@PathVariable Integer format,
 			@PathVariable Integer country, @PathVariable String CRG, @PathVariable Integer city) {
-		logger.info("Get Data Digital at: " + LocalDateTime.now() + "params format: " + format + ",country: " + country + ",CRG: " + CRG + ",city: " + city);
+		logger.info("Get Data Digital at: " + LocalDateTime.now());
 		List<ChartDigital> charts = procexec.getDigitalChart(format, country, CRG, 2, 0, city);
 		return new ResponseEntity<List<ChartDigital>>(charts, HttpStatus.CREATED);
 	}
@@ -106,7 +106,7 @@ public class ReportController {
 	@GetMapping(value = "getTopArtist/{format}/{country}", consumes = MediaType.ALL_VALUE)
 	public ResponseEntity<List<ArtistDigital>> getTopArtists(@PathVariable Integer format,
 			@PathVariable Integer country) {
-		logger.info("get Top Artist Format at: " + LocalDateTime.now());
+		logger.info("get getDigitalSong Format at: " + LocalDateTime.now());
 		List<ArtistDigital> song = procexec.getTopArtist(format, country);
 		return new ResponseEntity<List<ArtistDigital>>(song, HttpStatus.CREATED);
 	}
@@ -161,7 +161,5 @@ public class ReportController {
 		List<City> cities = procexec.getCities(country, CRG);
 		return new ResponseEntity<List<City>>(cities, HttpStatus.CREATED);
 	}
-	
-	
 
 }
