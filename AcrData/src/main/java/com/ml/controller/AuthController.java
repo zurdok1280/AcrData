@@ -80,7 +80,6 @@ public class AuthController {
     public RedirectView verifyEmail(@RequestParam("token") String token) {
 
         String jwtToken = userService.verifyEmailToken(token);
-        String frontendUrl = "http://localhost:8080";
         //String frontendUrl = "http://localhost:8080";
         String frontendUrl = "https://digital-latino.com/";
 
@@ -90,7 +89,6 @@ public class AuthController {
             return new RedirectView(frontendUrl + "/auth/callback?token=" + jwtToken);
         } else {
             // return to login page. There's a error
-            return new RedirectView(frontendUrl + "/login?error=invalid_token");
             return new RedirectView(frontendUrl + "/?error=invalid_token");
         }
     }
@@ -100,19 +98,16 @@ public class AuthController {
         try {
            
            String token = userService.login(request.getEmail(), request.getPassword());
-            return ResponseEntity.ok(Map.of("token", token));
             Map<String, String> body = new HashMap<>();
             body.put("token", token);
             return ResponseEntity.ok(body);
 
             
         } catch (BadCredentialsException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", e.getMessage()));
            Map<String, String> errorBody = new HashMap<>();
             errorBody.put("error", e.getMessage()); 
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorBody);
         } catch (IllegalStateException e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error", e.getMessage()));
             Map<String, String> errorBody = new HashMap<>();
             errorBody.put("error", e.getMessage()); 
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorBody);
