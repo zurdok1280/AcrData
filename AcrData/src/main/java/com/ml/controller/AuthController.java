@@ -15,6 +15,7 @@ import java.util.HashMap;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -80,6 +81,9 @@ public class AuthController {
 
         String jwtToken = userService.verifyEmailToken(token);
         String frontendUrl = "http://localhost:8080";
+        //String frontendUrl = "http://localhost:8080";
+        String frontendUrl = "https://digital-latino.com/";
+
 
         if (jwtToken != null) {
             // return to pay page
@@ -87,6 +91,7 @@ public class AuthController {
         } else {
             // return to login page. There's a error
             return new RedirectView(frontendUrl + "/login?error=invalid_token");
+            return new RedirectView(frontendUrl + "/?error=invalid_token");
         }
     }
 @PostMapping("/login")
@@ -96,12 +101,21 @@ public class AuthController {
            
            String token = userService.login(request.getEmail(), request.getPassword());
             return ResponseEntity.ok(Map.of("token", token));
+            Map<String, String> body = new HashMap<>();
+            body.put("token", token);
+            return ResponseEntity.ok(body);
 
             
         } catch (BadCredentialsException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", e.getMessage()));
+           Map<String, String> errorBody = new HashMap<>();
+            errorBody.put("error", e.getMessage()); 
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorBody);
         } catch (IllegalStateException e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error", e.getMessage()));
+            Map<String, String> errorBody = new HashMap<>();
+            errorBody.put("error", e.getMessage()); 
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorBody);
         }
     }
 

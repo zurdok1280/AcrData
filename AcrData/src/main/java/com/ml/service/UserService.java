@@ -78,6 +78,7 @@ public class UserService {
     public String verifyEmailToken(String token) {
         Optional<VerificationToken> verificationTokenOptional = tokenRepository.findByToken(token);
         if (verificationTokenOptional.isEmpty()) {
+        if (!verificationTokenOptional.isPresent()) {
             return null; 
         }
 
@@ -110,6 +111,7 @@ public class UserService {
 
         //Hashear password
         user.setPasswordHash(passwordEncoder.encode(registerRequest.password));
+        user.setPasswordHash(passwordEncoder.encode(registerRequest.password.trim()));
 
         //Phone
         if (registerRequest.phone != null) {
