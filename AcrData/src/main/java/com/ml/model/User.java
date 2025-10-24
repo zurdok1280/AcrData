@@ -16,7 +16,7 @@ import com.ml.model.enums.UserRole;
 @Entity
 @Table(name = "Users", schema = "billing")
 public class User {
-    // espejo de las columnas de la tala de usuarios
+    
     // espejo de las columnas de la tabla de usuarios
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
