@@ -15,19 +15,10 @@ public class ArtistDigital {
 	private Long followers_total_facebook;
 	private Long followers_total_twitter;
 	private Double spotify_streams;
-	private String img;
 	
 	
 	
 	
-	
-	
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
 	public Double getSpotify_streams() {
 		return spotify_streams;
 	}
@@ -130,8 +121,7 @@ public class ArtistDigital {
 	
 	public ArtistDigital(String rk, String artist, String monthly_listeners, String followers_total,
 			String popularity, String streams_total, String playlists, String playlist_reach,
-			String followers_total_instagram, String followers_total_tiktok, String videos_views_total_youtube, String followers_total_facebook, String followers_total_twitter, String spotify_streams,
-			String img) {
+			String followers_total_instagram, String followers_total_tiktok, String videos_views_total_youtube, String followers_total_facebook, String followers_total_twitter, String spotify_streams) {
 		super();
 		this.rk = Integer.parseInt(rk);
 		this.artist = artist;
@@ -147,7 +137,6 @@ public class ArtistDigital {
 		this.followers_total_facebook = Long.parseLong(followers_total_facebook);
 		this.followers_total_twitter = Long.parseLong(followers_total_twitter);
 		this.spotify_streams = Double.parseDouble(spotify_streams);
-		this.img = img;
 	}
 	
 	

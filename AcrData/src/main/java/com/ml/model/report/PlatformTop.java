@@ -7,21 +7,10 @@ public class PlatformTop {
 	private String label;
 	private Long data_res;
 	private Integer cs_song;
-	private String img;
 	
 	
 	
 	
-	
-	
-	
-	
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
 	public Integer getCs_song() {
 		return cs_song;
 	}
@@ -67,7 +56,7 @@ public class PlatformTop {
 		this.data_res = data_res;
 	}
 	
-	public PlatformTop(String rk, String song, String artists, String label, String data_res, String cs_song, String img) {
+	public PlatformTop(String rk, String song, String artists, String label, String data_res, String cs_song) {
 		super();
 		this.rk = Integer.parseInt(rk);
 		this.song = song;
@@ -75,7 +64,6 @@ public class PlatformTop {
 		this.label = label;
 		this.data_res = Long.parseLong(data_res);
 		this.cs_song = Integer.parseInt(cs_song);
-		this.img = img;
 	}
 	
 	

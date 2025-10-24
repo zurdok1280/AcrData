@@ -22,40 +22,9 @@ public class ChartDigital {
 	private Integer tw_spins;
 	private Integer tw_aud;
 	private Integer rk;
-	private String avatar;
-	private String url;
-	private Integer entid;
-	private String spotifyid;
 	
 	
 	
-	
-	
-	
-	public String getSpotifyid() {
-		return spotifyid;
-	}
-	public void setSpotifyid(String spotifyid) {
-		this.spotifyid = spotifyid;
-	}
-	public Integer getEntid() {
-		return entid;
-	}
-	public void setEntid(Integer entid) {
-		this.entid = entid;
-	}
-	public String getAvatar() {
-		return avatar;
-	}
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
 	public Integer getRk() {
 		return rk;
 	}
@@ -192,7 +161,7 @@ public class ChartDigital {
 	public ChartDigital(String cs_song, String cRG, String song, String artists, String label,
 			String spotify_streams_total, String tiktok_views_total, String youtube_video_views_total,String youtube_short_views_total, String shazams_total,
 			String soundcloud_stream_total, String pan_streams,String audience_total,String spins_total, String score, String rk_total,String tw_spins, String tw_aud,
-			String rk, String avatar, String url, String entid, String spotifyurl) {
+			String rk) {
 		super();
 		this.cs_song = Integer.parseInt(cs_song);
 		CRG = cRG;
@@ -213,10 +182,6 @@ public class ChartDigital {
 		this.youtube_short_views_total = Long.parseLong(youtube_short_views_total);
 		this.audience_total = Long.parseLong(audience_total);
 		this.rk = Integer.parseInt(rk);
-		this.avatar = avatar;
-		this.url = url;
-		this.entid = Integer.parseInt(entid);
-		this.spotifyid = spotifyurl;
 	}
 	
 	
