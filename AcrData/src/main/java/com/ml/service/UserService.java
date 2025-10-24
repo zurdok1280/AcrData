@@ -109,7 +109,6 @@ public class UserService {
         user.setEmail(registerRequest.email.trim());
 
         //Hashear password
-        user.setPasswordHash(passwordEncoder.encode(registerRequest.password));
         user.setPasswordHash(passwordEncoder.encode(registerRequest.password.trim()));
 
         //Phone
