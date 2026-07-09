@@ -12,13 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import com.ml.service.ChannelService;
 import com.ml.model.Channel;
 
@@ -34,7 +28,7 @@ public class ChannelController {
 	ChannelService schannel;
 	
 
-	@RequestMapping(value = "setAcrChannel", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "setAcrChannel", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<com.ml.model.acr.Channel> createAcr(@RequestBody com.ml.model.acr.Channel m) {
 		logger.info("Set Data at: " +  LocalDateTime.now());
 		m.getData().stream().forEach(f ->{

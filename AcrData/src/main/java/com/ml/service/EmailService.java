@@ -19,6 +19,7 @@ public class EmailService {
 
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(to);
+        email.setFrom("info@monitorlatino.com");
         email.setSubject(subject);
         email.setText(message);
         mailSender.send(email);

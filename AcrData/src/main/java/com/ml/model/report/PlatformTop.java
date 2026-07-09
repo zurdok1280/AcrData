@@ -7,10 +7,36 @@ public class PlatformTop {
 	private String label;
 	private Long data_res;
 	private Integer cs_song;
+	private String img;
+	private String spotifyartistid;
+	private Integer entid;
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	public Integer getEntid() {
+		return entid;
+	}
+	public void setEntid(Integer entid) {
+		this.entid = entid;
+	}
+	public String getSpotifyartistid() {
+		return spotifyartistid;
+	}
+	public void setSpotifyartistid(String spotifyartistid) {
+		this.spotifyartistid = spotifyartistid;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public Integer getCs_song() {
 		return cs_song;
 	}
@@ -56,7 +82,7 @@ public class PlatformTop {
 		this.data_res = data_res;
 	}
 	
-	public PlatformTop(String rk, String song, String artists, String label, String data_res, String cs_song) {
+	public PlatformTop(String rk, String song, String artists, String label, String data_res, String cs_song, String img, String spotifyartistid, String entid) {
 		super();
 		this.rk = Integer.parseInt(rk);
 		this.song = song;
@@ -64,6 +90,9 @@ public class PlatformTop {
 		this.label = label;
 		this.data_res = Long.parseLong(data_res);
 		this.cs_song = Integer.parseInt(cs_song);
+		this.img = img;
+		this.spotifyartistid = spotifyartistid;
+		this.entid = Integer.parseInt(entid);
 	}
 	
 	

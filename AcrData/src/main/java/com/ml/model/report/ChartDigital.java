@@ -22,9 +22,68 @@ public class ChartDigital {
 	private Integer tw_spins;
 	private Integer tw_aud;
 	private Integer rk;
+	private String avatar;
+	private String url;
+	private Integer entid;
+	private String spotifyid;
+	private String spotifyartistid;
+	private String movement;
+	private Float lw_score;
+	private Integer rk_lw;
 	
 	
 	
+	
+	
+	
+	public Integer getRk_lw() {
+		return rk_lw;
+	}
+	public void setRk_lw(Integer rk_lw) {
+		this.rk_lw = rk_lw;
+	}
+	public String getMovement() {
+		return movement;
+	}
+	public void setMovement(String movement) {
+		this.movement = movement;
+	}
+	public Float getLw_score() {
+		return lw_score;
+	}
+	public void setLw_score(Float lw_score) {
+		this.lw_score = lw_score;
+	}
+	public String getSpotifyartistid() {
+		return spotifyartistid;
+	}
+	public void setSpotifyartistid(String spotifyartistid) {
+		this.spotifyartistid = spotifyartistid;
+	}
+	public String getSpotifyid() {
+		return spotifyid;
+	}
+	public void setSpotifyid(String spotifyid) {
+		this.spotifyid = spotifyid;
+	}
+	public Integer getEntid() {
+		return entid;
+	}
+	public void setEntid(Integer entid) {
+		this.entid = entid;
+	}
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public Integer getRk() {
 		return rk;
 	}
@@ -161,7 +220,7 @@ public class ChartDigital {
 	public ChartDigital(String cs_song, String cRG, String song, String artists, String label,
 			String spotify_streams_total, String tiktok_views_total, String youtube_video_views_total,String youtube_short_views_total, String shazams_total,
 			String soundcloud_stream_total, String pan_streams,String audience_total,String spins_total, String score, String rk_total,String tw_spins, String tw_aud,
-			String rk) {
+			String rk, String avatar, String url, String entid, String spotifyurl, String movement, String lw_score,String spotifyartistid, String rk_lw) {
 		super();
 		this.cs_song = Integer.parseInt(cs_song);
 		CRG = cRG;
@@ -182,11 +241,15 @@ public class ChartDigital {
 		this.youtube_short_views_total = Long.parseLong(youtube_short_views_total);
 		this.audience_total = Long.parseLong(audience_total);
 		this.rk = Integer.parseInt(rk);
+		this.avatar = avatar;
+		this.url = url;
+		this.entid = Integer.parseInt(entid);
+		this.spotifyid = spotifyurl;
+		this.spotifyartistid = spotifyartistid;
+		this.movement = movement;
+		this.lw_score = Float.parseFloat(lw_score != " " ? lw_score: "0.0");
+		this.rk_lw = Integer.parseInt(rk_lw);
 	}
-	
-	
-	
-	
 	
 	
 	

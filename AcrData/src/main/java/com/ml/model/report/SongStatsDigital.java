@@ -62,6 +62,12 @@ public class SongStatsDigital {
 	private Integer rk_soundcloud;
 	private Integer rk_pandora;
 	private Integer pan_streams;
+	private Integer radio_tw_spins;
+	private Integer radio_tw_audience;
+	private Integer radio_tw_stations;
+	private Integer radio_audience_total;
+	private Integer radio_spins_total;
+	private Float radio_score;
 	
 	
 	
@@ -70,6 +76,102 @@ public class SongStatsDigital {
 	
 	
 	
+	public Integer getRadio_tw_spins() {
+		return radio_tw_spins;
+	}
+
+
+
+
+
+	public void setRadio_tw_spins(Integer radio_tw_spins) {
+		this.radio_tw_spins = radio_tw_spins;
+	}
+
+
+
+
+
+	public Integer getRadio_tw_audience() {
+		return radio_tw_audience;
+	}
+
+
+
+
+
+	public void setRadio_tw_audience(Integer radio_tw_audience) {
+		this.radio_tw_audience = radio_tw_audience;
+	}
+
+
+
+
+
+	public Integer getRadio_tw_stations() {
+		return radio_tw_stations;
+	}
+
+
+
+
+
+	public void setRadio_tw_stations(Integer radio_tw_stations) {
+		this.radio_tw_stations = radio_tw_stations;
+	}
+
+
+
+
+
+	public Integer getRadio_audience_total() {
+		return radio_audience_total;
+	}
+
+
+
+
+
+	public void setRadio_audience_total(Integer radio_audience_total) {
+		this.radio_audience_total = radio_audience_total;
+	}
+
+
+
+
+
+	public Integer getRadio_spins_total() {
+		return radio_spins_total;
+	}
+
+
+
+
+
+	public void setRadio_spins_total(Integer radio_spins_total) {
+		this.radio_spins_total = radio_spins_total;
+	}
+
+
+
+
+
+	public Float getRadio_score() {
+		return radio_score;
+	}
+
+
+
+
+
+	public void setRadio_score(Float radio_score) {
+		this.radio_score = radio_score;
+	}
+
+
+
+
+
 	public Integer getPan_streams() {
 		return pan_streams;
 	}
@@ -1129,8 +1231,15 @@ public class SongStatsDigital {
 			String shazam_charts_total, String tidal_popularity_current, String tidal_playlists_current,
 			String tidal_playlists_total,String soundcloud_streams_total, String soundcloud_favorites_total, String soundcloud_reposts_total,
 			String soundcloud_engagement_rate_total,
-			String rk_spotify, String rk_tiktok, String rk_youtube, String rk_shorts, String rk_shazam, String rk_soundcloud, String rk_pandora,String pan_streams) {
+			String rk_spotify, String rk_tiktok, String rk_youtube, String rk_shorts, String rk_shazam, String rk_soundcloud, String rk_pandora,String pan_streams,
+			String radio_tw_spins, String radio_tw_audience, String radio_tw_stations, String radio_audience_total, String radio_spins_total, String radio_score) {
 		super();
+		this.radio_tw_spins = Integer.parseInt(radio_tw_spins);
+		this.radio_tw_audience = Integer.parseInt(radio_tw_audience);
+		this.radio_tw_stations = Integer.parseInt(radio_tw_stations);
+		this.radio_audience_total = Integer.parseInt(radio_audience_total);
+		this.radio_spins_total = Integer.parseInt(radio_spins_total);
+		this.radio_score = Float.parseFloat(radio_score);
 		this.rk = Integer.parseInt(rk);
 		this.song = song;
 		this.artists = artists;
