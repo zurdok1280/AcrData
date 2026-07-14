@@ -1440,6 +1440,38 @@ public class ExecProcRepository {
 			return "{\"error\":\"" + e.getMessage() + "\"}";
 		}
 	}
+	
+	public String getPlaylistData(Integer type,Integer offset,Integer page_size) {
+		try {
+			Query query = entityManager.createNativeQuery("EXEC dbo.GET_PLAYLISTS @playlist_type = ?,  @offset = ?,  @page_size = ?");
+			query.setParameter(1, type);
+			query.setParameter(2, offset);
+			query.setParameter(3, page_size);
+
+			Object result = query.getSingleResult();
+
+			return result != null ? result.toString() : "{}";
+
+		} catch (Exception e) {
+			return "{\"error\":\"" + e.getMessage() + "\"}";
+		}
+	}
+	
+	public String getTiktokData(Integer genre,Integer offset,Integer page_size) {
+		try {
+			Query query = entityManager.createNativeQuery("EXEC dbo.GET_TIKTOK_USERS @genre = ?,  @offset = ?,  @page_size = ?");
+			query.setParameter(1, genre);
+			query.setParameter(2, offset);
+			query.setParameter(3, page_size);
+
+			Object result = query.getSingleResult();
+
+			return result != null ? result.toString() : "{}";
+
+		} catch (Exception e) {
+			return "{\"error\":\"" + e.getMessage() + "\"}";
+		}
+	}
 
 	public String getSongHistoricalStreamsWeekly(Integer cs_song, Integer country, Integer fmt) {
 		try {

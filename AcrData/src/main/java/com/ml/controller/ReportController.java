@@ -525,6 +525,20 @@ public class ReportController {
 		String result = procexec.getArtistRelatedGraphv2(artistid);
 		return ResponseEntity.ok(result);
 	}
+	
+	@GetMapping(value = "getPlaylistData/{type}/{offset}/{page_size}", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getPlaylistData(@PathVariable Integer type,@PathVariable Integer offset,@PathVariable Integer page_size) {
+		logger.info("get getPlaylistData at: " + LocalDateTime.now());
+		String result = procexec.getPlaylistData(type,offset,page_size);
+		return ResponseEntity.ok(result);
+	}
+	
+	@GetMapping(value = "getTiktokData/{genre}/{offset}/{page_size}", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getTiktokData(@PathVariable Integer genre,@PathVariable Integer offset,@PathVariable Integer page_size) {
+		logger.info("get getPlaylistData at: " + LocalDateTime.now());
+		String result = procexec.getTiktokData(genre,offset,page_size);
+		return ResponseEntity.ok(result);
+	}
 
 	@GetMapping(value = "getSongHistoricalStreams/{cs_song}", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getSongHistoricalStreams(@PathVariable Integer cs_song) {
