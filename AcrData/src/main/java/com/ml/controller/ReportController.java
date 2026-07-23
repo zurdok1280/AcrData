@@ -540,6 +540,28 @@ public class ReportController {
 		return ResponseEntity.ok(result);
 	}
 
+	@GetMapping(value = "searchPlaylist", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> searchPlaylist(
+			@RequestParam String query,
+			@RequestParam(defaultValue = "0")  Integer type,
+			@RequestParam(defaultValue = "0")  Integer offset,
+			@RequestParam(defaultValue = "50") Integer pageSize) {
+		logger.info("searchPlaylist query={} type={} at: {}", query, type, LocalDateTime.now());
+		String result = procexec.searchPlaylists(query, type, offset, pageSize);
+		return ResponseEntity.ok(result);
+	}
+
+	@GetMapping(value = "searchTiktokUser", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> searchTiktokUser(
+			@RequestParam String query,
+			@RequestParam(defaultValue = "0")  Integer genre,
+			@RequestParam(defaultValue = "0")  Integer offset,
+			@RequestParam(defaultValue = "50") Integer pageSize) {
+		logger.info("searchTiktokUser query={} at: {}", query, LocalDateTime.now());
+		String result = procexec.searchTiktokUsers(query, genre, offset, pageSize);
+		return ResponseEntity.ok(result);
+	}
+
 	@GetMapping(value = "getSongHistoricalStreams/{cs_song}", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getSongHistoricalStreams(@PathVariable Integer cs_song) {
 		logger.info("get song historical at: " + LocalDateTime.now());

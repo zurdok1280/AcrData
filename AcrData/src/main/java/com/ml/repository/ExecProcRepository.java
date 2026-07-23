@@ -1563,4 +1563,34 @@ public class ExecProcRepository {
 
 	}
 
+	public String searchPlaylists(String search, Integer type, Integer offset, Integer pageSize) {
+		try {
+			Query query = entityManager.createNativeQuery(
+				"EXEC dbo.GET_SEARCH_PLAYLISTS @search = ?, @type = ?, @offset = ?, @page_size = ?");
+			query.setParameter(1, search);
+			query.setParameter(2, type);
+			query.setParameter(3, offset);
+			query.setParameter(4, pageSize);
+			Object result = query.getSingleResult();
+			return result != null ? result.toString() : "{\"total_records\":0,\"playlists\":[]}";
+		} catch (Exception e) {
+			return "{\"error\":\"" + e.getMessage() + "\"}";
+		}
+	}
+
+	public String searchTiktokUsers(String search, Integer genre, Integer offset, Integer pageSize) {
+		try {
+			Query query = entityManager.createNativeQuery(
+				"EXEC dbo.GET_SEARCH_TIKTOK_USERS @search = ?, @genre = ?, @offset = ?, @page_size = ?");
+			query.setParameter(1, search);
+			query.setParameter(2, genre);
+			query.setParameter(3, offset);
+			query.setParameter(4, pageSize);
+			Object result = query.getSingleResult();
+			return result != null ? result.toString() : "{\"total_records\":0,\"tiktok_users\":[]}";
+		} catch (Exception e) {
+			return "{\"error\":\"" + e.getMessage() + "\"}";
+		}
+	}
+
 }
